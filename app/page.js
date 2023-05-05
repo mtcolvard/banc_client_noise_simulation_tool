@@ -62,7 +62,7 @@ export default function Home() {
         />
       </div>  
  */}
-      <div className="mb-32 grid  lg:mb-0 lg:grid-cols-4 lg:text-left font-mono">
+      <div className="mb-32   lg:mb-0  lg:text-left font-mono">
         <p className={`mb-6 text-xl opacity-50`}>
           Different levels of noise reduction in a soundproofing remodeling project, involve radically different solutions and costs. 
         </p>
