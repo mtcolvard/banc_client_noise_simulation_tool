@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import IconTabs from 'components/iconTabs'
-import Tabs from 'components/Tabs'
+import Tabs from 'components/tabs'
 import { TruckIcon, ArrowDownTrayIcon, UsersIcon, WrenchIcon, PlayIcon, StopIcon } from '@heroicons/react/20/solid'
 
 const noiseSource = [
