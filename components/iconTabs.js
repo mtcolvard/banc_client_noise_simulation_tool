@@ -14,7 +14,6 @@
 */
 
 
-import {TruckIcon, ArrowDownTrayIcon, UsersIcon, WrenchIcon } from '@heroicons/react/20/solid'
 
 
 
