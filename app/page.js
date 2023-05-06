@@ -98,7 +98,7 @@ export default function Home() {
 
 
         <p className={`mb-3 text-xl opacity-50`}>
-          5) Adjust the volume on your device until you feel the sound recording approximates the same level as the noise source that has been disturbing you.
+          5) Using the volume controls on your device, adjust the volume until you feel the sound recording approximates the same level as the noise source that has been disturbing you.
         </p>
 
         <p className={`mb-3 text-xl opacity-50`}>
