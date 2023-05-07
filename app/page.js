@@ -1,6 +1,9 @@
+'use client';
+import { useState } from 'react'
 import Image from 'next/image'
 import IconTabs from 'components/iconTabs'
 import Tabs from 'components/tabs'
+import DbInput from 'components/dbInput'
 import { TruckIcon, ArrowDownTrayIcon, UsersIcon, WrenchIcon, PlayIcon, StopIcon } from '@heroicons/react/20/solid'
 
 const noiseSource = [
@@ -9,6 +12,7 @@ const noiseSource = [
   { name: 'Mechanical Noise', href: '#', icon: WrenchIcon, current: false },
   { name: 'Annoying Footfalls', href: '#', icon: ArrowDownTrayIcon, current: false },
 ]
+
 const playControls = [
   { name: 'Play', href: '#', icon: PlayIcon, current: false },
   { name: 'Stop', href: '#', icon: StopIcon, current: true },
@@ -21,10 +25,19 @@ const noiseReduction = [
   { name: 'Great Reduction', href: '#',  current: false },
 ]
 
-
-
-
 export default function Home() {
+
+  const [decibleReduction, setDecibleReduction] = useState(0)
+  const [percentGain, setPercentGain] = useState(1)
+  const [isPlay, setIsPlay] = useState(false)
+
+  const handleDecibleReduction = (e) => {
+    const targetValue = (-1 * e.target.value) ?? 0
+    setDecibleReduction(targetValue)
+    setPercentGain((Math.pow(10, (targetValue / 20))).toFixed(2))
+  }
+
+  console.log(isPlay)
   return (
     <main className="flex min-h-screen flex-col items-center justify-between px-6 py-28 md:p-24 xl:px-56">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
@@ -81,33 +94,36 @@ export default function Home() {
         <p className={`mb-3 text-xl opacity-50`}>
           2) In a more relaxing location on your property, plug a pair of headphones into your computer or phone.
         </p>
-
         <p className={`mb-3 text-xl opacity-50`}>
           3) Select a noise source:
         </p>
-        <IconTabs tabs={noiseSource} />
-        <div className={`m-4`}>
-        </div>
-        
+        <IconTabs
+          tabs={noiseSource}
+        />
+        <div className={`m-4`}></div>
         <p className={`mb-3 text-xl opacity-50`}>
           4) Hit play.
         </p>
-        <IconTabs tabs={playControls} />
-        <div className={`m-4`}>
-        </div>
-
-
+        <IconTabs
+          tabs={playControls}
+        />
+        <div className={`m-4`}></div>
         <p className={`mb-3 text-xl opacity-50`}>
           5) Using the volume controls on your device, adjust the volume until you feel the sound recording approximates the same level as the noise source that has been disturbing you.
         </p>
-
         <p className={`mb-3 text-xl opacity-50`}>
           6) Select a level of noise reduction and determine which one works to meet your needs:
         </p>
-        <Tabs tabs={noiseReduction} />
-        <div className={`m-4`}>
-        </div>
-
+        <Tabs
+          tabs={noiseReduction}
+          onPlayPause={() => setIsPlay(!isPlay)}
+        />
+        <div className={`m-4`}></div>
+        <DbInput
+          handleDecibleReduction={handleDecibleReduction}
+          decibleReduction={decibleReduction}
+        />
+        <div className={`m-4`}></div>
         <p className={`mb-3 text-xl opacity-50`}>
           Once you have determined the level of noise reduction you need, it is possible to price out the architecural acoustics plan to get you there.
         </p>

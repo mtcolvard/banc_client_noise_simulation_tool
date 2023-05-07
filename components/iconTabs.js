@@ -1,21 +1,3 @@
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
-
-
-
-
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -24,11 +6,8 @@ function classNames(...classes) {
 export default function IconTabs({ tabs }) {
   return (
     <div>
-      <div className="sm:hidden">
-        <label htmlFor="tabs" className="sr-only">
-          Select a tab
-        </label>
-        {/* Use an "onChange" listener to redirect the user to the selected tab URL. */}
+      {/* <div className="sm:hidden">
+        Use an "onChange" listener to redirect the user to the selected tab URL.
         <select
           id="tabs"
           name="tabs"
@@ -39,14 +18,14 @@ export default function IconTabs({ tabs }) {
             <option key={tab.name}>{tab.name}</option>
           ))}
         </select>
-      </div>
+      </div> */}
       <div className="hidden sm:block">
         <div className="border-b border-gray-200">
-          <nav className="-mb-px flex space-x-8" aria-label="Tabs">
+          <div className="-mb-px flex space-x-8" aria-label="Tabs">
             {tabs.map((tab) => (
-              <a
+              <button
                 key={tab.name}
-                href={tab.href}
+                // onClick={handleClick}
                 className={classNames(
                   tab.current
                     ? 'border-indigo-500 text-indigo-600'
@@ -63,9 +42,9 @@ export default function IconTabs({ tabs }) {
                   aria-hidden="true"
                 />
                 <span>{tab.name}</span>
-              </a>
+              </button>
             ))}
-          </nav>
+          </div>
         </div>
       </div>
     </div>
