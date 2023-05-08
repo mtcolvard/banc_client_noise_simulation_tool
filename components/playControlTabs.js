@@ -18,7 +18,7 @@ export default function PlayControlTabs({ playControls, sendPlayControlClick }) 
                 onClick={e => sendPlayControlClick(tab.name)}
                 className={classNames(
                   tab.current
-                    ? 'border-amber-500 text-amber-600'
+                    ? 'border-yellow-300 text-yellow-400'
                     : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
                   'group inline-flex items-center border-b-2 py-4 px-1 text-sm font-medium'
                 )}
@@ -26,7 +26,7 @@ export default function PlayControlTabs({ playControls, sendPlayControlClick }) 
               >
                 <tab.icon
                   className={classNames(
-                    tab.current ? 'text-amber-500' : 'text-gray-400 group-hover:text-gray-500',
+                    tab.current ? 'text-yellow-400' : 'text-gray-400 group-hover:text-gray-500',
                     '-ml-0.5 mr-2 h-5 w-5'
                   )}
                   aria-hidden="true"

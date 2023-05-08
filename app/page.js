@@ -143,9 +143,9 @@ export default function Home() {
           decibleReduction={decibleReduction}
           // isDisabled={isDisabled}
         />
-        <div className={`m-4`}></div>
-        <p className={`mb-4 text-xl opacity-50`}>
-          Once you have determined the level of noise reduction you need, it is possible to price out the architecural acoustics plan to get you there.
+        <div className={`m-12`}></div>
+        <p className={`mb-4 text-2xl opacity-80 `}>
+          Once you have determined the level of noise reduction you need, we can absolutely help price out an architecural acoustics plan to get you there.
         </p>
 
 
