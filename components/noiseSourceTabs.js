@@ -30,9 +30,10 @@ export default function NoiseSourceTabs({ sendNoiseSource }) {
 
   return (
     <div>
-      <div className="hidden sm:block">
+      <div className="">
+      {/* <div className="hidden sm:block"> */}
         <div className="border-b border-gray-200">
-          <div className="-mb-px flex space-x-8" aria-label="Tabs">
+          <div className="-mb-px  md:space-x-8 flex flex-col md:inline divide-y md:divide-y-0 divide-white md:-gray-200" aria-label="Tabs">
             {noiseSource.map((tab) => (
               <button
                 key={tab.name}
@@ -41,7 +42,7 @@ export default function NoiseSourceTabs({ sendNoiseSource }) {
                   tab.current
                     ? 'border-indigo-500 text-indigo-600'
                     : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
-                  'group inline-flex items-center border-b-2 py-4 px-1 text-sm font-medium'
+                  ' group inline-flex  items-center  border-y-2 md:border-y-0 md:border-b-2 py-4 px-1 text-sm font-medium'
                 )}
                 aria-current={tab.current ? 'page' : undefined}
               >

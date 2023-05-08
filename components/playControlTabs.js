@@ -9,7 +9,7 @@ export default function PlayControlTabs({ playControls, sendPlayControlClick }) 
 
   return (
     <div>
-      <div className="hidden sm:block">
+      <div>
         <div className="border-b border-gray-200">
           <div className="-mb-px flex space-x-8" aria-label="Tabs">
             {playControls.map((tab) => (

@@ -84,8 +84,8 @@ export default function Home() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between px-6 py-28 md:p-24 xl:px-56">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-3xl lg:flex">
+    <main className="flex min-h-screen flex-col items-center justify-between px-3 py-28 md:p-24 xl:px-56">
+      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono md:text-3xl lg:flex">
         <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit ">
           Lee Brenners Noise Abatement Simulator
         </p>
