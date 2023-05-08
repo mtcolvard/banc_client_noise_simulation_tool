@@ -1,4 +1,11 @@
-export default function DbInput({ decibleReduction, sendDbReductionInput }) {
+export default function DbInput({ decibleReduction, sendDbReductionInput, isDisabled }) {
+
+  function sendClick() {
+    if (isDisabled) {
+      alert('        Hit play first!!!           ')
+    }
+  }
+
   return (
     <div>
       <div className="relative h-32 w-32  mt-2 rounded-md shadow-sm">
@@ -12,7 +19,8 @@ export default function DbInput({ decibleReduction, sendDbReductionInput }) {
           type="number"
           min={0}
           value={decibleReduction}
-          onChange={sendDbReductionInput} 
+          onChange={sendDbReductionInput}
+          onClick={sendClick}
         />
         <div className="pointer-events-none absolute inset-y-0 right-0 items-center flex  pr-2">
           <span className="text-gray-900 text-xl font-black" id="decible">

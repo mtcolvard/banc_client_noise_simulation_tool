@@ -6,7 +6,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function DbReductionTabs({ sendDbReduction } ) {
+export default function DbReductionTabs({ sendDbReductionTab, isDisabled } ) {
 
   const [noiseReduction, setNoiseReduction] = useState([
     { name: 'No Reduction', dbReduction: 0, current: true },
@@ -18,7 +18,7 @@ export default function DbReductionTabs({ sendDbReduction } ) {
   function handleClick( tabName ) {
     setNoiseReduction(noiseReduction.map(item => {
       if (item.name == tabName) {
-        sendDbReduction(item.dbReduction)
+        sendDbReductionTab(item.dbReduction)
         return {...item, current: true}
       }
       else {
@@ -35,6 +35,7 @@ export default function DbReductionTabs({ sendDbReduction } ) {
             {noiseReduction.map((tab) => (
               <button
                 key={tab.name}
+                disabled={isDisabled}
                 onClick={e => handleClick(tab.name)}
                 className={classNames(
                   tab.current

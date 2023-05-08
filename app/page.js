@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react'
 import Image from 'next/image'
+import useSound from 'use-sound'
 import NoiseSourceTabs from 'components/noiseSourceTabs'
 import PlayControlTabs from 'components/playControlTabs'
 import DbReductionTabs from 'components/dbReductionTabs'
@@ -11,41 +12,36 @@ import { PlayIcon, StopIcon } from '@heroicons/react/20/solid'
 
 export default function Home() {
   
-  const [playControls, setPlayControls] = useState([
-    { name: 'Play', href: '#', icon: PlayIcon, current: false },
-    { name: 'Stop', href: '#', icon: StopIcon, current: true },
-  ])
-  const [decibleReduction, setDecibleReduction] = useState(0)
-  // const [percentGain, setPercentGain] = useState(1)
-  const [selectedSound, setSelectedSound] = useState('Loud Neighbors')
-  const [isPlay, setIsPlay] = useState(false)
-  const percentGain = Math.min(1, ((Math.pow(10, (-1 * decibleReduction / 20))).toFixed(2)))
-
-  const handleDecibleReduction = (e) => {
-    const targetValue = (e.target.value) ?? 0
-    setDecibleReduction(targetValue)
-  }
-
   const soundOptions = [
-    { value: 'noisyRestaurant', label: 'Noisy Restaurant' },
-    { value: 'dragonDancing', label: 'Dragon Dancing Parade' },
-    { value: 'fastMovingFreeway', label: 'Ambient Freeway' },
-    { value: 'honkingTraffic', label: 'Honking Traffic' },
+    { value: 'loudNeighbors', label: 'Noisy Restaurant' },
+    { value: 'noisyTraffic', label: 'Dragon Dancing Parade' },
+    { value: 'mechanicalNoise', label: 'Ambient Freeway' },
+    { value: 'annoyingFootfalls', label: 'Honking Traffic' },
     { value: 'loudBar', label: 'Loud Bar' },
     { value: 'peopleShouting', label: 'Large Crowd, Shouting' },
     { value: 'poundingCeiling', label: 'Pounding on Ceiling' },
     { value: 'clarinet', label: 'Classical Musician Neighbor' },
   ]
-  const defaultOption = selectedSound
-
+ 
+  const [decibleReduction, setDecibleReduction] = useState(0)
+  const [selectedSound, setSelectedSound] = useState('loudNeighbors')
+  const [isPlay, setIsPlay] = useState(false)
+  const [isDisabled, setIsDisabled] = useState(true)
+  const percentGain = ((Math.pow(10, (-1 * decibleReduction / 20))).toFixed(2))
+  const [playControls, setPlayControls] = useState([
+    { name: 'Play', icon: PlayIcon, current: false },
+    { name: 'Stop', icon: StopIcon, current: true },
+  ])
   const [play, { stop, sound }] = useSound('/noiseSprite4.mp3', {
     loop: true,
     volume: percentGain,
+    autoSuspend: false,
+    preload: true,
     sprite: {
-      noisyRestaurant: [0, 30000],
-      dragonDancing: [30000, 60000],
-      fastMovingFreeway: [60000, 90000],
-      honkingTraffic: [90000, 120000],
+      loudNeighbors: [0, 30000],
+      noisyTraffic: [30000, 60000],
+      mechanicalNoise: [60000, 90000],
+      annoyingFootfalls: [90000, 120000],
       loudBar: [120000, 130000],
       peopleShouting: [130000, 140000],
       poundingCeiling: [140000, 150000],
@@ -53,19 +49,25 @@ export default function Home() {
     }
   })
 
+  const handleDecibleReductionInput = (e) => {
+    const targetValue = (e.target.value) ?? 0
+    setDecibleReduction(targetValue)
+  }
+
+ 
+
   const handleStop = () => {
     stop()
-    console.log('handleStop')
   }
 
   const handlePlay = () => {
-    console.log('handlePlay')
     stop()
+    setIsDisabled(false)
     play({ id: selectedSound })
   }
 
-  function handlePlayControlClick(tabName) {
-    if (tabName == 'play') {
+  const handlePlayControlClick = (tabName) => {
+    if (tabName == 'Play') {
       handlePlay()
     }
     else {
@@ -81,12 +83,9 @@ export default function Home() {
     }))
   }
 
-  console.log('deciblereduc', decibleReduction)
-  console.log('percentgain', percentGain)
-
   return (
     <main className="flex min-h-screen flex-col items-center justify-between px-6 py-28 md:p-24 xl:px-56">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
+      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-3xl lg:flex">
         <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit ">
           Lee Brenners Noise Abatement Simulator
         </p>
@@ -135,13 +134,15 @@ export default function Home() {
         </p>
 
         <DbReductionTabs
+          isDisabled={isDisabled}
           sendDbReductionTab={(dbReduction) => setDecibleReduction(dbReduction)}
         />
         <div className={`m-4`}></div>
 
         <DbInput
-          sendDbReductionInput={handleDecibleReduction}
+          sendDbReductionInput={handleDecibleReductionInput}
           decibleReduction={decibleReduction}
+          isDisabled={isDisabled}
         />
         <div className={`m-4`}></div>
         <p className={`mb-3 text-xl opacity-50`}>

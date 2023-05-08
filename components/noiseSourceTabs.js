@@ -9,17 +9,17 @@ function classNames(...classes) {
 export default function NoiseSourceTabs({ sendNoiseSource }) {
 
   const [noiseSource, setNoiseSource] = useState([
-    { name: 'Loud Neighbors', href: '#', icon: UsersIcon, current: true },
-    { name: 'Noisy Traffic', href: '#', icon: TruckIcon, current: false },
-    { name: 'Mechanical Noise', href: '#', icon: WrenchIcon, current: false },
-    { name: 'Annoying Footfalls', href: '#', icon: ArrowDownTrayIcon, current: false },
+    { name: 'Loud Neighbors', value: 'loudNeighbors', icon: UsersIcon, current: true },
+    { name: 'Noisy Traffic', value: 'noisyTraffic', icon: TruckIcon, current: false },
+    { name: 'Mechanical Noise', value: 'mechanicalNoise', icon: WrenchIcon, current: false },
+    { name: 'Annoying Footfalls', value: 'annoyingFootfalls', icon: ArrowDownTrayIcon, current: false },
   ])
 
 
   function handleClick(tabName) {
     setNoiseSource(noiseSource.map(item => {
       if (item.name == tabName) {
-        sendNoiseSource(item.name)
+        sendNoiseSource(item.value)
         return { ...item, current: true }
       }
       else {
