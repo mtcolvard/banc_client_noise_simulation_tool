@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import { TruckIcon, ArrowDownTrayIcon, UsersIcon, WrenchIcon} from '@heroicons/react/20/solid'
-
+import {TruckIcon, ArrowDownTrayIcon, UsersIcon, WrenchIcon, MusicalNoteIcon, TvIcon, TrashIcon, SignalIcon} from '@heroicons/react/20/solid'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -9,12 +8,15 @@ function classNames(...classes) {
 export default function NoiseSourceTabs({ sendNoiseSource }) {
 
   const [noiseSource, setNoiseSource] = useState([
-    { name: 'Loud Neighbors', value: 'loudNeighbors', icon: UsersIcon, current: true },
+    { name: 'Neighbors Arguing', value: 'loudNeighbors', icon: UsersIcon, current: true },
     { name: 'Noisy Traffic', value: 'noisyTraffic', icon: TruckIcon, current: false },
+    { name: 'Loud Television', value: 'loudTelevision', icon: TvIcon, current: false },
+    { name: 'Mid Frequency Music', value: 'midFrequencyMusic', icon: MusicalNoteIcon, current: false },
+    { name: 'Upstairs Stomping', value: 'upstairsStomping', icon: ArrowDownTrayIcon, current: false },
+    { name: 'Garbage Collection', value: 'garbageCollection', icon: TrashIcon , current: false },
     { name: 'Mechanical Noise', value: 'mechanicalNoise', icon: WrenchIcon, current: false },
-    { name: 'Annoying Footfalls', value: 'annoyingFootfalls', icon: ArrowDownTrayIcon, current: false },
+    { name: 'Low Freqency Music', value: 'lowFrequencyMusic', icon: SignalIcon, current: false },
   ])
-
 
   function handleClick(tabName) {
     setNoiseSource(noiseSource.map(item => {
@@ -30,10 +32,11 @@ export default function NoiseSourceTabs({ sendNoiseSource }) {
 
   return (
     <div>
-      <div className="">
+      <div>
       {/* <div className="hidden sm:block"> */}
         <div className="border-b border-gray-200">
-          <div className="-mb-px  md:space-x-8 flex flex-col md:inline divide-y md:divide-y-0 divide-white md:-gray-200" aria-label="Tabs">
+          <container className="-mb-px   flex flex-col md:grid md:grid-cols-4 md:grid-rows-2" aria-label="Tabs">
+          {/* <container className="-mb-px   flex flex-col md:grid md:grid-cols-4 md:grid-rows-2  max-sm:divide-y  max-sm:divide-white" aria-label="Tabs"> */}
             {noiseSource.map((tab) => (
               <button
                 key={tab.name}
@@ -41,8 +44,8 @@ export default function NoiseSourceTabs({ sendNoiseSource }) {
                 className={classNames(
                   tab.current
                     ? 'border-indigo-500 text-indigo-600'
-                    : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
-                  ' group inline-flex  items-center  border-y-2 md:border-y-0 md:border-b-2 py-4 px-1 text-sm font-medium'
+                    : ' text-gray-500 hover:border-gray-300 hover:text-gray-700',
+                  ' group inline-flex  items-center  border-b-2  py-4 px-1 text-sm font-medium'
                 )}
                 aria-current={tab.current ? 'page' : undefined}
               >
@@ -56,7 +59,7 @@ export default function NoiseSourceTabs({ sendNoiseSource }) {
                 <span>{tab.name}</span>
               </button>
             ))}
-          </div>
+          </container>
         </div>
       </div>
     </div>
