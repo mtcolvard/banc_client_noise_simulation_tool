@@ -1,31 +1,21 @@
+import { useState } from 'react'
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function IconTabs({ tabs }) {
+export default function PlayControlTabs({ playControls, sendPlayControlClick }) {
+
   return (
     <div>
-      {/* <div className="sm:hidden">
-        Use an "onChange" listener to redirect the user to the selected tab URL.
-        <select
-          id="tabs"
-          name="tabs"
-          className="block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
-          defaultValue={tabs.find((tab) => tab.current).name}
-        >
-          {tabs.map((tab) => (
-            <option key={tab.name}>{tab.name}</option>
-          ))}
-        </select>
-      </div> */}
       <div className="hidden sm:block">
         <div className="border-b border-gray-200">
           <div className="-mb-px flex space-x-8" aria-label="Tabs">
-            {tabs.map((tab) => (
+            {playControls.map((tab) => (
               <button
                 key={tab.name}
-                // onClick={handleClick}
+                onClick={e => sendPlayControlClick(tab.name)}
                 className={classNames(
                   tab.current
                     ? 'border-indigo-500 text-indigo-600'
