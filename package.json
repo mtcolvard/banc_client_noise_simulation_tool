@@ -22,6 +22,9 @@
     "use-sound": "^4.0.1"
   },
   "devDependencies": {
-    "@tailwindcss/forms": "^0.5.3"
+    "@tailwindcss/forms": "^0.5.3",
+    "@types/node": "20.1.0",
+    "@types/react": "18.2.6",
+    "typescript": "5.0.4"
   }
 }

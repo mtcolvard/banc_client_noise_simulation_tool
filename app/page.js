@@ -26,7 +26,7 @@ export default function Home() {
   const [decibleReduction, setDecibleReduction] = useState(0)
   const [selectedSound, setSelectedSound] = useState('loudNeighbors')
   const [isPlay, setIsPlay] = useState(false)
-  const [isDisabled, setIsDisabled] = useState(true)
+  // const [isDisabled, setIsDisabled] = useState(true)
   const percentGain = ((Math.pow(10, (-1 * decibleReduction / 20))).toFixed(2))
   const [playControls, setPlayControls] = useState([
     { name: 'Play', icon: PlayIcon, current: false },
@@ -62,7 +62,7 @@ export default function Home() {
 
   const handlePlay = () => {
     stop()
-    setIsDisabled(false)
+    // setIsDisabled(false)
     play({ id: selectedSound })
   }
 
@@ -134,7 +134,7 @@ export default function Home() {
         </p>
 
         <DbReductionTabs
-          isDisabled={isDisabled}
+          // isDisabled={isDisabled}
           sendDbReductionTab={(dbReduction) => setDecibleReduction(dbReduction)}
         />
         <div className={`m-4`}></div>
@@ -142,7 +142,7 @@ export default function Home() {
         <DbInput
           sendDbReductionInput={handleDecibleReductionInput}
           decibleReduction={decibleReduction}
-          isDisabled={isDisabled}
+          // isDisabled={isDisabled}
         />
         <div className={`m-4`}></div>
         <p className={`mb-3 text-xl opacity-50`}>

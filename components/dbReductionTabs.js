@@ -35,7 +35,7 @@ export default function DbReductionTabs({ sendDbReductionTab, isDisabled } ) {
             {noiseReduction.map((tab) => (
               <button
                 key={tab.name}
-                disabled={isDisabled}
+                // disabled={isDisabled}
                 onClick={e => handleClick(tab.name)}
                 className={classNames(
                   tab.current
