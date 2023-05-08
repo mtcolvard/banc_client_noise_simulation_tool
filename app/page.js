@@ -12,43 +12,27 @@ import { PlayIcon, StopIcon } from '@heroicons/react/20/solid'
 
 export default function Home() {
   
-  const soundOptions = [
-    { value: 'loudNeighbors', label: 'Noisy Restaurant' },
-    { value: 'noisyTraffic', label: 'Dragon Dancing Parade' },
-    { value: 'mechanicalNoise', label: 'Ambient Freeway' },
-    { value: 'annoyingFootfalls', label: 'Honking Traffic' },
-    { value: 'loudBar', label: 'Loud Bar' },
-    { value: 'peopleShouting', label: 'Large Crowd, Shouting' },
-    { value: 'poundingCeiling', label: 'Pounding on Ceiling' },
-    { value: 'clarinet', label: 'Classical Musician Neighbor' },
-  ]
+  // const soundOptions = [
+  //   { value: 'loudNeighbors', label: 'Noisy Restaurant' },
+  //   { value: 'noisyTraffic', label: 'Dragon Dancing Parade' },
+  //   { value: 'mechanicalNoise', label: 'Ambient Freeway' },
+  //   { value: 'annoyingFootfalls', label: 'Honking Traffic' },
+  //   { value: 'loudBar', label: 'Loud Bar' },
+  //   { value: 'peopleShouting', label: 'Large Crowd, Shouting' },
+  //   { value: 'poundingCeiling', label: 'Pounding on Ceiling' },
+  //   { value: 'clarinet', label: 'Classical Musician Neighbor' },
+  // ]
  
   const [decibleReduction, setDecibleReduction] = useState(0)
-  const [selectedSound, setSelectedSound] = useState('loudNeighbors')
-  const [isPlay, setIsPlay] = useState(false)
+  const [selectedSound, setSelectedSound] = useState('neighborsArguing')
+  // const [isPlay, setIsPlay] = useState(false)
   // const [isDisabled, setIsDisabled] = useState(true)
   const percentGain = ((Math.pow(10, (-1 * decibleReduction / 20))).toFixed(2))
   const [playControls, setPlayControls] = useState([
     { name: 'Play', icon: PlayIcon, current: false },
     { name: 'Stop', icon: StopIcon, current: true },
   ])
-  // const [play, { stop, sound }] = useSound('/noiseSprite4.mp3', {
-  //   loop: true,
-  //   volume: percentGain,
-  //   autoSuspend: false,
-  //   preload: true,
-  //   sprite: {
-  //     loudNeighbors: [0, 30000],
-  //     noisyTraffic: [30000, 60000],
-  //     mechanicalNoise: [60000, 90000],
-  //     annoyingFootfalls: [90000, 120000],
-  //     loudBar: [120000, 130000],
-  //     peopleShouting: [130000, 140000],
-  //     poundingCeiling: [140000, 150000],
-  //     clarinet: [150000, 1610000]
-  //   }
-  // })
-  const [play, { stop, sound }] = useSound('/leeToolSprite.mp3', {
+  const [play, { stop, sound }] = useSound('/leeToolSprite2.mp3', {
     loop: true,
     volume: percentGain,
     autoSuspend: false,
@@ -58,7 +42,7 @@ export default function Home() {
       noisyTraffic: [10000, 20000],
       loudTelevision: [20000, 32000],
       midFrequencyMusic: [32000, 42000],
-      upstairsStomping: [420000, 52000],
+      upstairsStomping: [42000, 52000],
       garbageCollection: [52000, 62000],
       mechanicalNoise: [62000, 72000],
       lowFrequencyMusic: [72000, 82000],
