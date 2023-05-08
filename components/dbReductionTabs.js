@@ -31,7 +31,7 @@ export default function DbReductionTabs({ sendDbReductionTab, isDisabled } ) {
     <div>
       <div >
         <div className="border-b border-gray-200 ">
-          <div className="-mb-px md:space-x-8 flex flex-col md:inline divide-y md:divide-y-0 divide-gray-200" >
+          <div className="-mb-px  flex flex-col  " >
             {noiseReduction.map((tab) => (
               <button
                 key={tab.name}
@@ -40,11 +40,11 @@ export default function DbReductionTabs({ sendDbReductionTab, isDisabled } ) {
                 className={classNames(
                   tab.current
                     ? 'border-amber-500 text-amber-600'
-                    : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
-                  'group inline-flex items-center border-y-2 md:border-y-0 md:border-b-2  py-4 px-1 text-sm font-medium'
+                    : 'text-gray-500 hover:border-gray-300 hover:text-gray-700',
+                  'group inline-flex items-center border-b-2   py-4 px-1 text-sm font-medium'
                 )}
-              >
-                {tab.name}
+             >
+                <span>{tab.name}</span>
               </button>
             ))}
           </div>

@@ -89,7 +89,7 @@ export default function Home() {
             Lee Brenner&rsquo;s Noise Abatement Simulator
         </p>
       </div>
-      <div className="md:mt-12 mb-32 grid  lg:mb-0  lg:text-left font-mono">
+      <div className="mt-4 md:mt-12 mb-32 grid  lg:mb-0  lg:text-left font-mono">
         <p className={`mb-6 text-xl opacity-50`}>
           Different levels of noise reduction in a soundproofing remodeling project, involve radically different solutions and costs. 
         </p>
