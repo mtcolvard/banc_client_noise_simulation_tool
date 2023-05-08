@@ -21,15 +21,37 @@ export default function Home() {
   const [isPlay, setIsPlay] = useState(false)
   const percentGain = Math.min(1, ((Math.pow(10, (-1 * decibleReduction / 20))).toFixed(2)))
 
-  
-
-  console.log('deciblereduc', decibleReduction)
-  console.log('percentgain', percentGain)
-
   const handleDecibleReduction = (e) => {
     const targetValue = (e.target.value) ?? 0
     setDecibleReduction(targetValue)
   }
+
+  const soundOptions = [
+    { value: 'noisyRestaurant', label: 'Noisy Restaurant' },
+    { value: 'dragonDancing', label: 'Dragon Dancing Parade' },
+    { value: 'fastMovingFreeway', label: 'Ambient Freeway' },
+    { value: 'honkingTraffic', label: 'Honking Traffic' },
+    { value: 'loudBar', label: 'Loud Bar' },
+    { value: 'peopleShouting', label: 'Large Crowd, Shouting' },
+    { value: 'poundingCeiling', label: 'Pounding on Ceiling' },
+    { value: 'clarinet', label: 'Classical Musician Neighbor' },
+  ]
+  const defaultOption = selectedSound
+
+  const [play, { stop, sound }] = useSound('/noiseSprite4.mp3', {
+    loop: true,
+    volume: percentGain,
+    sprite: {
+      noisyRestaurant: [0, 30000],
+      dragonDancing: [30000, 60000],
+      fastMovingFreeway: [60000, 90000],
+      honkingTraffic: [90000, 120000],
+      loudBar: [120000, 130000],
+      peopleShouting: [130000, 140000],
+      poundingCeiling: [140000, 150000],
+      clarinet: [150000, 1610000]
+    }
+  })
 
   const handleStop = () => {
     stop()
@@ -59,7 +81,8 @@ export default function Home() {
     }))
   }
 
-
+  console.log('deciblereduc', decibleReduction)
+  console.log('percentgain', percentGain)
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between px-6 py-28 md:p-24 xl:px-56">
@@ -112,12 +135,12 @@ export default function Home() {
         </p>
 
         <DbReductionTabs
-          sendDbReduction={(dbReduction) => setDecibleReduction(dbReduction)}
+          sendDbReductionTab={(dbReduction) => setDecibleReduction(dbReduction)}
         />
         <div className={`m-4`}></div>
 
         <DbInput
-          handleDecibleReduction={handleDecibleReduction}
+          sendDbReductionInput={handleDecibleReduction}
           decibleReduction={decibleReduction}
         />
         <div className={`m-4`}></div>

@@ -6,7 +6,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function NoiseControlTabs({ sendNoiseSource }) {
+export default function NoiseSourceTabs({ sendNoiseSource }) {
 
   const [noiseSource, setNoiseSource] = useState([
     { name: 'Loud Neighbors', href: '#', icon: UsersIcon, current: true },

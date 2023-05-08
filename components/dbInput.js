@@ -1,23 +1,18 @@
-
-
-export default function DbInput({ decibleReduction, handleDecibleReduction }) {
-
-  
-
+export default function DbInput({ decibleReduction, sendDbReductionInput }) {
   return (
     <div>
       <div className="relative h-32 w-32  mt-2 rounded-md shadow-sm">
-        <div className="pointer-events-none absolute inset-0 flex items-center pl-4">
+        <div className="pointer-events-none absolute inset-0 flex items-center pl-5">
           <span className="text-gray-900 text-xl font-black">-</span>
         </div>
         <input
-          className="control-dbl h-32 w-32 text-center block w-full rounded-md border-0 py-1.5 pl-7 pr-7 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 md:text-5xl sm:leading-6"
+          className="text-5xl h-32 w-32 text-center block w-full rounded-md border-0 py-1.5 pl-7 pr-7 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600"
           name="dbl"
           id="dbl"
           type="number"
           min={0}
           value={decibleReduction}
-          onChange={handleDecibleReduction} 
+          onChange={sendDbReductionInput} 
         />
         <div className="pointer-events-none absolute inset-y-0 right-0 items-center flex  pr-2">
           <span className="text-gray-900 text-xl font-black" id="decible">
