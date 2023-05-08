@@ -15,7 +15,7 @@ export default function NoiseSourceTabs({ sendNoiseSource }) {
     { name: 'Upstairs Stomping', value: 'upstairsStomping', icon: ArrowDownTrayIcon, current: false },
     { name: 'Garbage Collection', value: 'garbageCollection', icon: TrashIcon , current: false },
     { name: 'Mechanical Noise', value: 'mechanicalNoise', icon: WrenchIcon, current: false },
-    { name: 'Low Freqency Music', value: 'lowFrequencyMusic', icon: SignalIcon, current: false },
+    { name: 'Low Frequency Music', value: 'lowFrequencyMusic', icon: SignalIcon, current: false },
   ])
 
   
