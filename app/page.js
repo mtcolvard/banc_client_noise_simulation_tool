@@ -32,20 +32,36 @@ export default function Home() {
     { name: 'Play', icon: PlayIcon, current: false },
     { name: 'Stop', icon: StopIcon, current: true },
   ])
-  const [play, { stop, sound }] = useSound('/noiseSprite4.mp3', {
+  // const [play, { stop, sound }] = useSound('/noiseSprite4.mp3', {
+  //   loop: true,
+  //   volume: percentGain,
+  //   autoSuspend: false,
+  //   preload: true,
+  //   sprite: {
+  //     loudNeighbors: [0, 30000],
+  //     noisyTraffic: [30000, 60000],
+  //     mechanicalNoise: [60000, 90000],
+  //     annoyingFootfalls: [90000, 120000],
+  //     loudBar: [120000, 130000],
+  //     peopleShouting: [130000, 140000],
+  //     poundingCeiling: [140000, 150000],
+  //     clarinet: [150000, 1610000]
+  //   }
+  // })
+  const [play, { stop, sound }] = useSound('/leeToolSprite.mp3', {
     loop: true,
     volume: percentGain,
     autoSuspend: false,
     preload: true,
     sprite: {
-      loudNeighbors: [0, 30000],
-      noisyTraffic: [30000, 60000],
-      mechanicalNoise: [60000, 90000],
-      annoyingFootfalls: [90000, 120000],
-      loudBar: [120000, 130000],
-      peopleShouting: [130000, 140000],
-      poundingCeiling: [140000, 150000],
-      clarinet: [150000, 1610000]
+      neighborsArguing: [0, 10000],
+      noisyTraffic: [10000, 20000],
+      loudTelevision: [20000, 32000],
+      midFrequencyMusic: [32000, 42000],
+      upstairsStomping: [420000, 52000],
+      garbageCollection: [52000, 62000],
+      mechanicalNoise: [62000, 72000],
+      lowFrequencyMusic: [72000, 82000],
     }
   })
 

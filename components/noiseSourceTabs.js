@@ -8,7 +8,7 @@ function classNames(...classes) {
 export default function NoiseSourceTabs({ sendNoiseSource }) {
 
   const [noiseSource, setNoiseSource] = useState([
-    { name: 'Neighbors Arguing', value: 'loudNeighbors', icon: UsersIcon, current: true },
+    { name: 'Neighbors Arguing', value: 'neighborsArguing', icon: UsersIcon, current: true },
     { name: 'Noisy Traffic', value: 'noisyTraffic', icon: TruckIcon, current: false },
     { name: 'Loud Television', value: 'loudTelevision', icon: TvIcon, current: false },
     { name: 'Mid Frequency Music', value: 'midFrequencyMusic', icon: MusicalNoteIcon, current: false },
@@ -17,6 +17,9 @@ export default function NoiseSourceTabs({ sendNoiseSource }) {
     { name: 'Mechanical Noise', value: 'mechanicalNoise', icon: WrenchIcon, current: false },
     { name: 'Low Freqency Music', value: 'lowFrequencyMusic', icon: SignalIcon, current: false },
   ])
+
+  
+    
 
   function handleClick(tabName) {
     setNoiseSource(noiseSource.map(item => {
@@ -36,7 +39,6 @@ export default function NoiseSourceTabs({ sendNoiseSource }) {
       {/* <div className="hidden sm:block"> */}
         <div className="border-b border-gray-200">
           <container className="-mb-px   flex flex-col md:grid md:grid-cols-4 md:grid-rows-2" aria-label="Tabs">
-          {/* <container className="-mb-px   flex flex-col md:grid md:grid-cols-4 md:grid-rows-2  max-sm:divide-y  max-sm:divide-white" aria-label="Tabs"> */}
             {noiseSource.map((tab) => (
               <button
                 key={tab.name}
