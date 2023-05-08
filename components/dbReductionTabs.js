@@ -39,7 +39,7 @@ export default function DbReductionTabs({ sendDbReductionTab, isDisabled } ) {
                 onClick={e => handleClick(tab.name)}
                 className={classNames(
                   tab.current
-                    ? 'border-indigo-500 text-indigo-600'
+                    ? 'border-amber-500 text-amber-600'
                     : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
                   'group inline-flex items-center border-y-2 md:border-y-0 md:border-b-2  py-4 px-1 text-sm font-medium'
                 )}

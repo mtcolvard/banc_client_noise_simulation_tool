@@ -35,17 +35,16 @@ export default function Home() {
   const [play, { stop, sound }] = useSound('/leeToolSprite2.mp3', {
     loop: true,
     volume: percentGain,
-    autoSuspend: false,
-    preload: true,
+    // preload: true,
     sprite: {
       neighborsArguing: [0, 10000],
-      noisyTraffic: [10000, 20000],
-      loudTelevision: [20000, 32000],
-      midFrequencyMusic: [32000, 42000],
-      upstairsStomping: [42000, 52000],
-      garbageCollection: [52000, 62000],
-      mechanicalNoise: [62000, 72000],
-      lowFrequencyMusic: [72000, 82000],
+      noisyTraffic: [10000, 10000],
+      loudTelevision: [20000, 12000],
+      midFrequencyMusic: [32000, 10000],
+      upstairsStomping: [42000, 10000],
+      garbageCollection: [52000, 10000],
+      mechanicalNoise: [62000, 10000],
+      lowFrequencyMusic: [72000, 10000],
     }
   })
 
