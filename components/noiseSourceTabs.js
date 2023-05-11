@@ -7,7 +7,7 @@ function classNames(...classes) {
 
 export default function NoiseSourceTabs({ sendNoiseSource }) {
 
-  const [noiseSource, setNoiseSource] = useState([
+  const [noiseSources, setNoiseSources] = useState([
     { name: 'Neighbors Arguing', value: 'neighborsArguing', icon: UsersIcon, current: true },
     { name: 'Noisy Traffic', value: 'noisyTraffic', icon: TruckIcon, current: false },
     { name: 'Loud Television', value: 'loudTelevision', icon: TvIcon, current: false },
@@ -18,12 +18,11 @@ export default function NoiseSourceTabs({ sendNoiseSource }) {
     { name: 'Low Frequency Music', value: 'lowFrequencyMusic', icon: SignalIcon, current: false },
   ])
 
-  
-    
-
   function handleClick(tabName) {
-    setNoiseSource(noiseSource.map(item => {
+    setNoiseSources(noiseSources.map(item => {
       if (item.name == tabName) {
+        // item.value is the recording we are about play, it goes out through props to page.js
+        // and immeditately triggers  setSelectedSound
         sendNoiseSource(item.value)
         return { ...item, current: true }
       }
@@ -39,7 +38,7 @@ export default function NoiseSourceTabs({ sendNoiseSource }) {
       {/* <div className="hidden sm:block"> */}
         <div className="border-b border-gray-200">
           <container className="-mb-px   flex flex-col md:grid md:grid-cols-4 md:grid-rows-2" aria-label="Tabs">
-            {noiseSource.map((tab) => (
+            {noiseSources.map((tab) => (
               <button
                 key={tab.name}
                 onClick={e => handleClick(tab.name)}

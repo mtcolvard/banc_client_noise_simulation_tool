@@ -6,7 +6,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function DbReductionTabs({ sendDbReductionTab, isDisabled } ) {
+export default function DbReductionTabs({ sendDbReductionTab } ) {
 
   const [noiseReduction, setNoiseReduction] = useState([
     { name: 'No Reduction', dbReduction: 0, current: true },
@@ -35,11 +35,10 @@ export default function DbReductionTabs({ sendDbReductionTab, isDisabled } ) {
             {noiseReduction.map((tab) => (
               <button
                 key={tab.name}
-                // disabled={isDisabled}
                 onClick={e => handleClick(tab.name)}
                 className={classNames(
                   tab.current
-                    ? 'border-yellow-300 text-yellow-400'
+                    ? 'border-yellow-400 text-yellow-600'
                     : 'text-gray-500 hover:border-gray-300 hover:text-gray-700',
                   'group inline-flex items-center border-b-2   py-4 px-1 text-sm font-medium'
                 )}
